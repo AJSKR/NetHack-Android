@@ -215,7 +215,7 @@ jbyteArray create_bytearray(const char* str)
 	memcpy(e, str, len);
 	(*jEnv)->ReleaseByteArrayElements(jEnv, a, e, 0);
 	return a;
-	// return (*jEnv)->NewStringUTF(jEnv, str);
+//	 return (*jEnv)->NewStringUTF(jEnv, str);
 }
 
 //____________________________________________________________________________________
@@ -253,9 +253,9 @@ void Java_com_tbd_forkfront_NetHackIO_RunNetHack(JNIEnv* env, jobject thiz, jstr
 	jYNFunction = (*jEnv)->GetMethodID(jEnv, jApp, "ynFunction", "([B[BI)V");
 	jGetLine = (*jEnv)->GetMethodID(jEnv, jApp, "getLine", "([BIII)Ljava/lang/String;");
 	jStartMenu = (*jEnv)->GetMethodID(jEnv, jApp, "startMenu", "(I)V");
-	jAddMenu = (*jEnv)->GetMethodID(jEnv, jApp, "addMenu", "(IIIIII[BII)V");
+	jAddMenu = (*jEnv)->GetMethodID(jEnv, jApp, "addMenu", "(IIJIII[BII)V");
 	jEndMenu = (*jEnv)->GetMethodID(jEnv, jApp, "endMenu", "(I[B)V");
-	jSelectMenu = (*jEnv)->GetMethodID(jEnv, jApp, "selectMenu", "(III)[I");
+	jSelectMenu = (*jEnv)->GetMethodID(jEnv, jApp, "selectMenu", "(III)[J");
 	jCliparound = (*jEnv)->GetMethodID(jEnv, jApp, "cliparound", "(IIII)V");
 	jDelayOutput = (*jEnv)->GetMethodID(jEnv, jApp, "delayOutput", "()V");
 	jShowDPad = (*jEnv)->GetMethodID(jEnv, jApp, "askDirection", "()V");
@@ -1203,7 +1203,7 @@ void and_add_menu(winid wid, int glyph, const ANY_P *ident, CHAR_P accelerator, 
 
 	jbyteArray jstr = create_bytearray(str);
 	JNICallV(jAddMenu, wid, tile, ident->a_int, (int)accelerator, (int)groupacc, attr, jstr, (int)preselected, color);
-	destroy_jobject(jstr);
+//	destroy_jobject(jstr);
 }
 
 //____________________________________________________________________________________

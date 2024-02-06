@@ -87,7 +87,7 @@ SYSOBJ = ioctl.o androidmain.o unixtty.o androidunix.o
 # CC = arm-linux-gcc
 #
 # For cross-compiling with Android NDK
-NDK = /path/to/android-ndk-r19c
+NDK = /home/jyahn/nh/ndk/android-ndk-r26b
 
 NDK_TOOLCHAIN = $(NDK)/toolchains/llvm/prebuilt/linux-x86_64/bin
 
